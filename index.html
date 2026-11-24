@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a35">
+  <meta name="description" content="A clean, responsive weather app with current conditions and a 7-day forecast.">
+  <title>SkyCast — Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="SkyCast home"><span class="brand-mark">✳</span><span>skycast</span></a>
+      <div class="top-actions">
+        <span class="live-indicator"><i></i> LIVE WEATHER</span>
+        <button class="unit-toggle" id="unitToggle" type="button" aria-label="Switch temperature unit">°C <span>/</span> °F</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div><p class="eyebrow">YOUR WEATHER, AT A GLANCE</p><h1>Forecast that<br><span>feels like you.</span></h1></div>
+        <p class="intro-note">A little more clarity for whatever<br>the day has in store.</p>
+      </section>
+
+      <section class="search-row" aria-label="Find a location">
+        <form id="searchForm" class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="cityInput" type="search" placeholder="Search city, e.g. Seoul" autocomplete="off" aria-label="Search city">
+          <button type="submit" id="searchButton">Search <span>→</span></button>
+        </form>
+        <button class="location-button" id="locationButton" type="button"><span>◎</span> Use my location</button>
+      </section>
+      <p class="status" id="status" role="status" aria-live="polite">Loading weather…</p>
+
+      <section class="weather-grid">
+        <article class="current-card panel">
+          <div class="card-heading"><div><p class="eyebrow">CURRENT WEATHER</p><h2 id="placeName">Seoul, South Korea</h2><p class="muted" id="localDate">—</p></div><span class="sun-orbit" aria-hidden="true">☼</span></div>
+          <div class="current-main">
+            <div><div class="temperature" id="temperature">--<span>°</span></div><p class="condition" id="condition">Getting conditions…</p><p class="feels" id="feelsLike">Feels like --°</p></div>
+            <div class="weather-visual" id="weatherVisual" aria-hidden="true">☀️</div>
+          </div>
+          <div class="high-low"><span>↑ <b id="todayHigh">--°</b> High</span><span>↓ <b id="todayLow">--°</b> Low</span></div>
+          <div class="detail-grid">
+            <div class="detail"><span class="detail-icon">💧</span><div><small>Humidity</small><strong id="humidity">--%</strong></div></div>
+            <div class="detail"><span class="detail-icon">🌬️</span><div><small>Wind speed</small><strong id="wind">-- km/h</strong></div></div>
+            <div class="detail"><span class="detail-icon">☀️</span><div><small>UV index</small><strong id="uv">--</strong></div></div>
+            <div class="detail"><span class="detail-icon">🌧️</span><div><small>Rain chance</small><strong id="rain">--%</strong></div></div>
+          </div>
+        </article>
+
+        <article class="forecast-card panel">
+          <div class="section-heading"><div><p class="eyebrow">PLAN AHEAD</p><h2>7-day forecast</h2></div><span class="heading-icon">↗</span></div>
+          <div class="week-list" id="weekForecast"><div class="loading-line">Preparing your forecast…</div></div>
+        </article>
+      </section>
+
+      <section class="hourly-card panel">
+        <div class="section-heading"><div><p class="eyebrow">THE NEXT HOURS</p><h2>Hourly forecast</h2></div><span class="muted">Next 24 hours</span></div>
+        <div class="hourly-list" id="hourlyForecast"><div class="loading-line">Loading hourly forecast…</div></div>
+      </section>
+      <footer><span class="brand small-brand"><span class="brand-mark">✳</span> skycast</span><span>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span><span id="updatedAt">—</span></footer>
+    </main>
+  </div>
+</body>
+</html>
