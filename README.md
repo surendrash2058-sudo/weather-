@@ -21,7 +21,7 @@ python -m http.server 8000
 Then visit http://localhost:8000.
 
 ## Deploy with GitHub Pages
-The workflow in `.github/workflows/deploy.yml` builds and deploys the site whenever changes are pushed to `main`. In the repository, open **Settings → Pages** and make sure **Source** is set to **GitHub Actions**. After the workflow succeeds, the site is available at:
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site whenever changes are pushed to `main`. In the repository, open **Settings → Pages** and make sure **Source** is set to **GitHub Actions**. The workflow uploads the website files as a Pages artifact before deploying them. After the workflow succeeds, the site is available at:
 
 https://surendrash2058-sudo.github.io/weather-/
 
